@@ -28,12 +28,17 @@ module.exports = (sequelize) => {
         field: 'directorPersonId',
         allowNull: false,
       },
+      /**
+        * Adding this option configures the database
+        * to delete any rows in the Movies table when
+        * a referenced row in the People table is deleted.
+        */
+      onDelete: 'cascade',
     });
     Movie.belongsToMany(models.Person, {
       as: 'actors',
       through: 'MovieActors',
       foreignKey: 'movieId', // associate with Person
-      fieldName: 'actorPersonId',
       otherKey: 'personId',
     });
   };
