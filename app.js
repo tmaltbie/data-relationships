@@ -173,7 +173,7 @@ console.log('Testing the connection to the database...');
         },
         {
           model: Person,
-          as: 'actor',
+          as: 'actors',
           // attributes: ['firstName, 'lastName'],
           through: {
             // this removes the through model properties from being included
@@ -215,7 +215,7 @@ console.log('Testing the connection to the database...');
       const errors = error.errors.map(err => err.message);
       console.error('Validation errors: ', errors);
     } else {
-      throw error;
+      console.error(error); // just log the error
     }
   }
 })();

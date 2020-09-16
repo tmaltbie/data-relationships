@@ -32,6 +32,7 @@ module.exports = (sequelize) => {
     Movie.belongsToMany(models.Person, {
       as: 'actors',
       through: 'MovieActors',
+      foreignKey: 'movieId', // associate with Person
       fieldName: 'actorPersonId',
       otherKey: 'personId',
     });
